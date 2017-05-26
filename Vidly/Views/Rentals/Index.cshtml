@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Vidly.Models.Rental>
+@{
+    ViewBag.Title = "Rentals";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Rental History</h2>
+<table class="table table-bordered table-hover">
+    @*<table id="rentals" class="table table-bordered table-hover">*@
+    <thead>
+        <tr>
+            <th>Customer</th>
+            <th>Movie</th>
+            <th>Date Rented</th>
+            @*<th>Date Returned</th>*@
+        </tr>
+    </thead>
+
+    @foreach (var rental in Model)
+    {
+        <tr>
+            <td>@rental.Customer.Name</td>
+            <td>@rental.Movie.Name</td>
+            <td>@rental.DateRented</td>
+            @*<td>@rental.DateReturned</td>*@
+        </tr>
+    }
+</table>
+
+
+
+    @*@section scripts
+        {
+            <script>
+                $(document).ready(function () {
+                    var table = $("#rentals").DataTable({
+                        ajax: {
+                            url: "/api/rentals",
+                            dataSrc: ""
+                        },
+                        columns: [
+                           {
+                               data: "id"
+                           },
+                            {
+                                data: ""
+                            }
+                            //,
+                            //{
+                            //    data: "dateRented"
+                            //},
+                            //{
+                            //    data: "dateReturned"
+                            //}
+
+                        ]
+                    });
+                });
+            </script>
+        }*@

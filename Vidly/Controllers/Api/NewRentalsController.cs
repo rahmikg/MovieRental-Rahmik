@@ -6,6 +6,8 @@ using System.Net.Http;
 using System.Web.Http;
 using Vidly.Dtos;
 using Vidly.Models;
+using AutoMapper;
+using System.Data.Entity;
 
 namespace Vidly.Controllers.Api
 {
@@ -17,6 +19,7 @@ namespace Vidly.Controllers.Api
         {
             _context = new ApplicationDbContext();
         }
+
         [HttpPost]
         public IHttpActionResult CreateNewRentals(NewRentalDto newRental)
         {
@@ -47,5 +50,30 @@ namespace Vidly.Controllers.Api
 
             return Ok();
         }
+
+        //GET /api/customers
+        public IEnumerable<NewRentalDto> GetRentals()
+        {
+            return _context.Rentals.ToList().Select(Mapper.Map<Rental, NewRentalDto>);
+        }
+
+        //public IHttpActionResult GetRentals()
+        //{
+        //    var rentalDtos = _context.Rentals.ToList().Select(Mapper.Map<Rental, NewRentalDto>);
+
+        //    return Ok(rentalDtos);
+        //}
+
+        ////        //GET /api/customers/1
+        //public IHttpActionResult GetRental(int id)
+        //{
+        //    var rental = _context.Rentals.SingleOrDefault(c => c.Id == id);
+
+        //    if (rental == null)
+        //        return NotFound();
+           
+        //    return Ok(Mapper.Map<Rental, NewRentalDto>(rental));
+        //}
+
     }
 }

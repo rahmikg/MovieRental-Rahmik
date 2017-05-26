@@ -32,8 +32,6 @@ namespace Vidly.Controllers.Api
             return moviesQuery
                 .ToList()
                 .Select(Mapper.Map<Movie, MovieDto>);
-
-         
         }
 
         public IHttpActionResult GetMovie(int id)
@@ -44,8 +42,6 @@ namespace Vidly.Controllers.Api
                return NotFound();
 
             return Ok(Mapper.Map<Movie, MovieDto>(movie));
-
-         
         }
 
         [HttpPost]

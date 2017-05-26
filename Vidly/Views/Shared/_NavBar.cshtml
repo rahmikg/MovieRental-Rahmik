@@ -15,9 +15,10 @@
 
             @if (User.IsInRole("CanManageMovie"))
             {
-                <li>@Html.ActionLink("New Customer", "New", "Customers")</li>
-                <li>@Html.ActionLink("New Movie", "New", "Movies")</li>
-                <li>@Html.ActionLink("Rental", "New", "Rentals")</li>
+                <li>@Html.ActionLink("Add Customer", "New", "Customers")</li>
+                <li>@Html.ActionLink("Add Movie", "New", "Movies")</li>
+                <li>@Html.ActionLink("New Rental", "New", "Rentals")</li>
+                <li>@Html.ActionLink("Rental History", "Index", "Rentals")</li>
             }
                 
             </ul>

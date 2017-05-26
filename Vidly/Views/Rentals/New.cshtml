@@ -87,8 +87,10 @@
             return vm.customerId && vm.customerId !== 0;
             }, "Please select a valid customer.");
 
-            $.validator.addMethod("validMovie", function () {
+            $.validator.addMethod("atLeastOneMovie", function () {
+                //return vm.moviedIds && vm.moviedIds !== 0;
                 return vm.moviedIds.length > 0;
+
             }, "Please select a valid movie.");
 
 
